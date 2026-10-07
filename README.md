@@ -206,7 +206,7 @@ Any model failure falls back to the offline path for that call.
 
 ```bash
 make test   # 202 backend tests
-make e2e    # 26 browser tests
+make e2e    # 30 browser tests
 ```
 
 ## The rules it plays by

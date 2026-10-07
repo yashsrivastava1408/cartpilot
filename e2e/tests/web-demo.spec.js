@@ -314,13 +314,18 @@ test("items that exist nowhere are left out and said so", async ({ page }) => {
   expect(await page.evaluate(() => window.__cartpilot.state.plan.unfulfilled)).toEqual(["item-1"]);
 });
 
+// Fonts differ between machines (Linux CI falls back to a wider one), so the layout is
+// also checked with deliberately wide fonts, not only the local default.
 for (const width of [360, 768]) {
-  test(`layout holds at ${width}px with no sideways scroll`, async ({ page }) => {
-    await page.setViewportSize({ width, height: 800 });
-    await runList(page, WEEKEND);
-    await waitForPhase(page, "plan");
-    await page.locator("details.more").first().locator("summary").click();
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-    expect(overflow).toBeLessThanOrEqual(0);
-  });
+  for (const font of [null, "Verdana", "Courier New"]) {
+    test(`layout holds at ${width}px with no sideways scroll${font ? ` (${font})` : ""}`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 800 });
+      if (font) await page.addStyleTag({ content: `:root { --font: "${font}", sans-serif !important; }` });
+      await runList(page, WEEKEND);
+      await waitForPhase(page, "plan");
+      await page.locator("details.more").first().locator("summary").click();
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow).toBeLessThanOrEqual(0);
+    });
+  }
 }
