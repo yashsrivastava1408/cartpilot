@@ -1,0 +1,9 @@
+backend/.venv/
+backend/.env
+__pycache__/
+*.pyc
+.pytest_cache/
+e2e/node_modules/
+e2e/test-results/
+e2e/playwright-report/
+.DS_Store

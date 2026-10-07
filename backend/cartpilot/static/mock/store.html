@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-store="{{STORE}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{LABEL}} (mock store)</title>
+  <link rel="stylesheet" href="/mock-assets/store.css">
+  <!-- Same scripts the extension injects. They only matter when this page is embedded in the CartPilot web demo. -->
+  <script src="/ext/page-hook.js"></script>
+  <script src="/ext/adapters.js"></script>
+  <script src="/ext/driver.js"></script>
+  <script src="/ext/embed-bridge.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <strong>{{LABEL}}</strong>
+        <small>Mock store · {{ETA}} min</small>
+      </div>
+    </div>
+    <form class="search" data-testid="search-form" role="search" autocomplete="off">
+      <input data-testid="search-input" type="search" name="q" placeholder="Search for milk, eggs, atta…" aria-label="Search products">
+      <button type="submit" aria-label="Search">Search</button>
+    </form>
+    <button class="cart-button" data-testid="cart-button" type="button" aria-haspopup="dialog">
+      Cart <span class="count" data-testid="cart-count">0</span>
+    </button>
+  </header>
+
+  <p class="notice">Demo storefront with invented prices. Not affiliated with {{LABEL}}.</p>
+
+  <main>
+    <h1 class="heading" data-testid="heading">Popular right now</h1>
+    <section class="grid" data-testid="results" aria-live="polite"></section>
+  </main>
+
+  <div class="scrim" data-testid="scrim" hidden></div>
+  <aside class="drawer" data-testid="cart-drawer" role="dialog" aria-label="Your cart" hidden>
+    <div class="drawer-head">
+      <h2>Your cart</h2>
+      <button type="button" data-testid="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" data-testid="cart-lines"></div>
+    <div class="drawer-foot" data-testid="cart-bill"></div>
+  </aside>
+
+  <div class="toast" data-testid="toast" role="status" hidden></div>
+  <script>window.MOCK_STORE = "{{STORE}}";</script>
+  <script src="/mock-assets/store.js"></script>
+</body>
+</html>

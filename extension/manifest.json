@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "CartPilot",
+  "version": "1.0.0",
+  "description": "A fun side project: split one grocery list across quick-commerce apps for the lowest total. You always pay yourself.",
+  "minimum_chrome_version": "116",
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": { "default_title": "Open CartPilot", "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png" } },
+  "side_panel": { "default_path": "panel/index.html" },
+  "background": { "service_worker": "background.js" },
+  "permissions": ["sidePanel", "tabs", "storage"],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "https://www.zepto.com/*",
+    "https://www.zeptonow.com/*",
+    "https://blinkit.com/*",
+    "https://www.blinkit.com/*",
+    "https://www.swiggy.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:8000/mock/*",
+        "http://127.0.0.1:8000/mock/*",
+        "https://www.zepto.com/*",
+        "https://www.zeptonow.com/*",
+        "https://blinkit.com/*",
+        "https://www.blinkit.com/*",
+        "https://www.swiggy.com/*"
+      ],
+      "js": ["src/page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "http://localhost:8000/mock/*",
+        "http://127.0.0.1:8000/mock/*",
+        "https://www.zepto.com/*",
+        "https://www.zeptonow.com/*",
+        "https://blinkit.com/*",
+        "https://www.blinkit.com/*",
+        "https://www.swiggy.com/*"
+      ],
+      "js": ["src/adapters.js", "src/driver.js", "src/recorder.js", "src/content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -1,0 +1,1861 @@
+{
+ "_comment": "Invented prices for the offline demo. Not real store data. Each mock store is made cheaper in a few categories so that splitting a big basket has something to find.",
+ "products": [
+  {
+   "id": "amul-taaza-1l",
+   "name": "Amul Taaza Toned Milk",
+   "brand": "Amul",
+   "size": "1 L",
+   "category": "dairy",
+   "keywords": [
+    "milk"
+   ],
+   "emoji": "🥛",
+   "mrp": 72,
+   "apps": {
+    "zepto": {
+     "price": 68,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 70,
+     "in_stock": true,
+     "name": "Amul Taaza Homogenised Toned Milk"
+    },
+    "instamart": {
+     "price": 69,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-gold-1l",
+   "name": "Amul Gold Full Cream Milk",
+   "brand": "Amul",
+   "size": "1 L",
+   "category": "dairy",
+   "keywords": [
+    "milk"
+   ],
+   "emoji": "🥛",
+   "mrp": 80,
+   "apps": {
+    "zepto": {
+     "price": 67,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 75,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 78,
+     "in_stock": true,
+     "name": "Amul Gold Full Cream Fresh Milk"
+    }
+   }
+  },
+  {
+   "id": "amul-taaza-500ml",
+   "name": "Amul Taaza Toned Milk",
+   "brand": "Amul",
+   "size": "500 ml",
+   "category": "dairy",
+   "keywords": [
+    "milk"
+   ],
+   "emoji": "🥛",
+   "mrp": 36,
+   "apps": {
+    "zepto": {
+     "price": 30,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 34,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 35,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "md-toned-1l",
+   "name": "Mother Dairy Toned Milk",
+   "brand": "Mother Dairy",
+   "size": "1 L",
+   "category": "dairy",
+   "keywords": [
+    "milk"
+   ],
+   "emoji": "🥛",
+   "mrp": 70,
+   "apps": {
+    "zepto": {
+     "price": 59,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 66,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-butter-100g",
+   "name": "Amul Butter",
+   "brand": "Amul",
+   "size": "100 g",
+   "category": "dairy",
+   "keywords": [
+    "butter"
+   ],
+   "emoji": "🧈",
+   "mrp": 62,
+   "apps": {
+    "zepto": {
+     "price": 52,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 58,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 61,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-butter-500g",
+   "name": "Amul Butter",
+   "brand": "Amul",
+   "size": "500 g",
+   "category": "dairy",
+   "keywords": [
+    "butter"
+   ],
+   "emoji": "🧈",
+   "mrp": 305,
+   "apps": {
+    "zepto": {
+     "price": 256,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 299,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 287,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-cheese-slices-200g",
+   "name": "Amul Cheese Slices",
+   "brand": "Amul",
+   "size": "200 g",
+   "category": "dairy",
+   "keywords": [
+    "cheese"
+   ],
+   "emoji": "🧀",
+   "mrp": 160,
+   "apps": {
+    "zepto": {
+     "price": 134,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 150,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 157,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-paneer-200g",
+   "name": "Amul Fresh Paneer",
+   "brand": "Amul",
+   "size": "200 g",
+   "category": "dairy",
+   "keywords": [
+    "paneer"
+   ],
+   "emoji": "🧀",
+   "mrp": 98,
+   "apps": {
+    "zepto": {
+     "price": 82,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 92,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 96,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "md-curd-400g",
+   "name": "Mother Dairy Classic Curd",
+   "brand": "Mother Dairy",
+   "size": "400 g",
+   "category": "dairy",
+   "keywords": [
+    "curd",
+    "dahi"
+   ],
+   "emoji": "🥣",
+   "mrp": 40,
+   "apps": {
+    "zepto": {
+     "price": 34,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 39,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 38,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-dahi-400g",
+   "name": "Amul Masti Dahi",
+   "brand": "Amul",
+   "size": "400 g",
+   "category": "dairy",
+   "keywords": [
+    "curd",
+    "dahi"
+   ],
+   "emoji": "🥣",
+   "mrp": 38,
+   "apps": {
+    "zepto": {
+     "price": 32,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 37,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 36,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "eggs-6",
+   "name": "Table White Eggs",
+   "brand": null,
+   "size": "6 pcs",
+   "category": "eggs",
+   "keywords": [
+    "egg"
+   ],
+   "emoji": "🥚",
+   "mrp": 60,
+   "apps": {
+    "zepto": {
+     "price": 50,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 56,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 59,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "eggs-12",
+   "name": "Table White Eggs",
+   "brand": null,
+   "size": "12 pcs",
+   "category": "eggs",
+   "keywords": [
+    "egg"
+   ],
+   "emoji": "🥚",
+   "mrp": 115,
+   "apps": {
+    "zepto": {
+     "price": 97,
+     "in_stock": true,
+     "name": "White Eggs Table Tray"
+    },
+    "blinkit": {
+     "price": 108,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 113,
+     "in_stock": true,
+     "name": "Fresh Table White Eggs"
+    }
+   }
+  },
+  {
+   "id": "eggs-30",
+   "name": "Table White Eggs",
+   "brand": null,
+   "size": "30 pcs",
+   "category": "eggs",
+   "keywords": [
+    "egg"
+   ],
+   "emoji": "🥚",
+   "mrp": 260,
+   "apps": {
+    "zepto": {
+     "price": 218,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 244,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 255,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "eggoz-brown-6",
+   "name": "Eggoz Farm Fresh Brown Eggs",
+   "brand": "Eggoz",
+   "size": "6 pcs",
+   "category": "eggs",
+   "keywords": [
+    "egg"
+   ],
+   "emoji": "🥚",
+   "mrp": 85,
+   "apps": {
+    "zepto": {
+     "price": 71,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 83,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 80,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "maggi-70g",
+   "name": "Maggi 2-Minute Masala Noodles",
+   "brand": "Maggi",
+   "size": "70 g",
+   "category": "noodles",
+   "keywords": [
+    "noodle",
+    "maggi"
+   ],
+   "emoji": "🍜",
+   "mrp": 15,
+   "apps": {
+    "zepto": {
+     "price": 15,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 14,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 15,
+     "in_stock": true,
+     "name": "Maggi 2-Minute Instant Noodles Masala"
+    }
+   }
+  },
+  {
+   "id": "maggi-280g",
+   "name": "Maggi 2-Minute Masala Noodles",
+   "brand": "Maggi",
+   "size": "280 g",
+   "category": "noodles",
+   "keywords": [
+    "noodle",
+    "maggi"
+   ],
+   "emoji": "🍜",
+   "mrp": 60,
+   "apps": {
+    "zepto": {
+     "price": 59,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 50,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 56,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "maggi-560g",
+   "name": "Maggi 2-Minute Masala Noodles",
+   "brand": "Maggi",
+   "size": "560 g",
+   "category": "noodles",
+   "keywords": [
+    "noodle",
+    "maggi"
+   ],
+   "emoji": "🍜",
+   "mrp": 115,
+   "apps": {
+    "zepto": {
+     "price": 108,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 97,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 113,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "maggi-atta-290g",
+   "name": "Maggi Atta Noodles",
+   "brand": "Maggi",
+   "size": "290 g",
+   "category": "noodles",
+   "keywords": [
+    "noodle",
+    "maggi"
+   ],
+   "emoji": "🍜",
+   "mrp": 100,
+   "apps": {
+    "zepto": {
+     "price": 98,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 84,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 94,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "yippee-280g",
+   "name": "Sunfeast Yippee Magic Masala Noodles",
+   "brand": "Sunfeast",
+   "size": "280 g",
+   "category": "noodles",
+   "keywords": [
+    "noodle"
+   ],
+   "emoji": "🍜",
+   "mrp": 60,
+   "apps": {
+    "zepto": {
+     "price": 59,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 50,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 56,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "maggi-ketchup-900g",
+   "name": "Maggi Rich Tomato Ketchup",
+   "brand": "Maggi",
+   "size": "900 g",
+   "category": "sauces",
+   "keywords": [
+    "ketchup",
+    "sauce"
+   ],
+   "emoji": "🍅",
+   "mrp": 140,
+   "apps": {
+    "zepto": {
+     "price": 132,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 118,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 137,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "aashirvaad-atta-5kg",
+   "name": "Aashirvaad Shudh Chakki Atta",
+   "brand": "Aashirvaad",
+   "size": "5 kg",
+   "category": "staples",
+   "keywords": [
+    "atta",
+    "flour"
+   ],
+   "emoji": "🌾",
+   "mrp": 265,
+   "apps": {
+    "zepto": {
+     "price": 245,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 239,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 252,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "aashirvaad-atta-10kg",
+   "name": "Aashirvaad Shudh Chakki Atta",
+   "brand": "Aashirvaad",
+   "size": "10 kg",
+   "category": "staples",
+   "keywords": [
+    "atta",
+    "flour"
+   ],
+   "emoji": "🌾",
+   "mrp": 500,
+   "apps": {
+    "zepto": {
+     "price": 490,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 420,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 470,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "aashirvaad-atta-1kg",
+   "name": "Aashirvaad Shudh Chakki Atta",
+   "brand": "Aashirvaad",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "atta",
+    "flour"
+   ],
+   "emoji": "🌾",
+   "mrp": 62,
+   "apps": {
+    "zepto": {
+     "price": 61,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 52,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 58,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "fortune-atta-5kg",
+   "name": "Fortune Chakki Fresh Atta",
+   "brand": "Fortune",
+   "size": "5 kg",
+   "category": "staples",
+   "keywords": [
+    "atta",
+    "flour"
+   ],
+   "emoji": "🌾",
+   "mrp": 250,
+   "apps": {
+    "zepto": {
+     "price": 235,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 210,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 245,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tata-salt-1kg",
+   "name": "Tata Salt Vacuum Evaporated Iodised Salt",
+   "brand": "Tata",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "salt"
+   ],
+   "emoji": "🧂",
+   "mrp": 30,
+   "apps": {
+    "zepto": {
+     "price": 29,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 25,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 28,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tata-salt-lite-1kg",
+   "name": "Tata Salt Lite Low Sodium Salt",
+   "brand": "Tata",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "salt"
+   ],
+   "emoji": "🧂",
+   "mrp": 50,
+   "apps": {
+    "zepto": {
+     "price": 49,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 42,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 47,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "india-gate-basmati-1kg",
+   "name": "India Gate Feast Rozzana Basmati Rice",
+   "brand": "India Gate",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "rice",
+    "basmati"
+   ],
+   "emoji": "🍚",
+   "mrp": 125,
+   "apps": {
+    "zepto": {
+     "price": 122,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 105,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 118,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "daawat-basmati-1kg",
+   "name": "Daawat Rozana Super Basmati Rice",
+   "brand": "Daawat",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "rice",
+    "basmati"
+   ],
+   "emoji": "🍚",
+   "mrp": 120,
+   "apps": {
+    "zepto": {
+     "price": 118,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 101,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 113,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tata-toor-dal-1kg",
+   "name": "Tata Sampann Unpolished Toor Dal",
+   "brand": "Tata Sampann",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "dal",
+    "toor",
+    "arhar"
+   ],
+   "emoji": "🫘",
+   "mrp": 215,
+   "apps": {
+    "zepto": {
+     "price": 202,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 181,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 211,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tata-moong-dal-500g",
+   "name": "Tata Sampann Moong Dal",
+   "brand": "Tata Sampann",
+   "size": "500 g",
+   "category": "staples",
+   "keywords": [
+    "dal",
+    "moong"
+   ],
+   "emoji": "🫘",
+   "mrp": 95,
+   "apps": {
+    "zepto": {
+     "price": 89,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 80,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 93,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "madhur-sugar-1kg",
+   "name": "Madhur Pure Sugar",
+   "brand": "Madhur",
+   "size": "1 kg",
+   "category": "staples",
+   "keywords": [
+    "sugar"
+   ],
+   "emoji": "🍬",
+   "mrp": 60,
+   "apps": {
+    "zepto": {
+     "price": 59,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 50,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 56,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "fortune-sunflower-1l",
+   "name": "Fortune Sunlite Refined Sunflower Oil",
+   "brand": "Fortune",
+   "size": "1 L",
+   "category": "oils",
+   "keywords": [
+    "oil",
+    "sunflower"
+   ],
+   "emoji": "🌻",
+   "mrp": 165,
+   "apps": {
+    "zepto": {
+     "price": 162,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 155,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 139,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "saffola-gold-1l",
+   "name": "Saffola Gold Refined Oil",
+   "brand": "Saffola",
+   "size": "1 L",
+   "category": "oils",
+   "keywords": [
+    "oil"
+   ],
+   "emoji": "🫗",
+   "mrp": 190,
+   "apps": {
+    "zepto": {
+     "price": 179,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 186,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 160,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "amul-ghee-500ml",
+   "name": "Amul Pure Ghee",
+   "brand": "Amul",
+   "size": "500 ml",
+   "category": "oils",
+   "keywords": [
+    "ghee"
+   ],
+   "emoji": "🧈",
+   "mrp": 340,
+   "apps": {
+    "zepto": {
+     "price": 320,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 333,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 286,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "catch-hing-50g",
+   "name": "Catch Compounded Hing",
+   "brand": "Catch",
+   "size": "50 g",
+   "category": "spices",
+   "keywords": [
+    "hing",
+    "asafoetida"
+   ],
+   "emoji": "🧂",
+   "mrp": 95,
+   "apps": {
+    "zepto": {
+     "price": 93,
+     "in_stock": false
+    },
+    "blinkit": {
+     "price": 89,
+     "in_stock": false
+    },
+    "instamart": {
+     "price": 80,
+     "in_stock": false
+    }
+   }
+  },
+  {
+   "id": "everest-hing-50g",
+   "name": "Everest Compounded Hing",
+   "brand": "Everest",
+   "size": "50 g",
+   "category": "spices",
+   "keywords": [
+    "hing",
+    "asafoetida"
+   ],
+   "emoji": "🧂",
+   "mrp": 99,
+   "apps": {
+    "zepto": {
+     "price": 93,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 97,
+     "in_stock": true,
+     "name": "Everest Hing Compounded Asafoetida"
+    },
+    "instamart": {
+     "price": 83,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "everest-turmeric-100g",
+   "name": "Everest Turmeric Powder",
+   "brand": "Everest",
+   "size": "100 g",
+   "category": "spices",
+   "keywords": [
+    "turmeric",
+    "haldi"
+   ],
+   "emoji": "🟡",
+   "mrp": 45,
+   "apps": {
+    "zepto": {
+     "price": 44,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 42,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 38,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "mdh-garam-masala-100g",
+   "name": "MDH Garam Masala",
+   "brand": "MDH",
+   "size": "100 g",
+   "category": "spices",
+   "keywords": [
+    "masala"
+   ],
+   "emoji": "🌶️",
+   "mrp": 95,
+   "apps": {
+    "zepto": {
+     "price": 93,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 89,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 80,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "everest-chilli-100g",
+   "name": "Everest Tikhalal Red Chilli Powder",
+   "brand": "Everest",
+   "size": "100 g",
+   "category": "spices",
+   "keywords": [
+    "chilli",
+    "mirch"
+   ],
+   "emoji": "🌶️",
+   "mrp": 55,
+   "apps": {
+    "zepto": {
+     "price": 52,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 54,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 46,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "britannia-bread-400g",
+   "name": "Britannia 100% Whole Wheat Bread",
+   "brand": "Britannia",
+   "size": "400 g",
+   "category": "bakery",
+   "keywords": [
+    "bread"
+   ],
+   "emoji": "🍞",
+   "mrp": 55,
+   "apps": {
+    "zepto": {
+     "price": 46,
+     "in_stock": true,
+     "name": "Britannia Whole Wheat Bread"
+    },
+    "blinkit": {
+     "price": 54,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 52,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "harvest-bread-400g",
+   "name": "Harvest Gold White Bread",
+   "brand": "Harvest Gold",
+   "size": "400 g",
+   "category": "bakery",
+   "keywords": [
+    "bread"
+   ],
+   "emoji": "🍞",
+   "mrp": 45,
+   "apps": {
+    "zepto": {
+     "price": 38,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 42,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "britannia-marie-250g",
+   "name": "Britannia Marie Gold Biscuits",
+   "brand": "Britannia",
+   "size": "250 g",
+   "category": "bakery",
+   "keywords": [
+    "biscuit"
+   ],
+   "emoji": "🍪",
+   "mrp": 40,
+   "apps": {
+    "zepto": {
+     "price": 34,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 39,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 38,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "parle-g-800g",
+   "name": "Parle-G Gold Biscuits",
+   "brand": "Parle-G",
+   "size": "800 g",
+   "category": "bakery",
+   "keywords": [
+    "biscuit"
+   ],
+   "emoji": "🍪",
+   "mrp": 150,
+   "apps": {
+    "zepto": {
+     "price": 126,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 141,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 147,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "good-day-200g",
+   "name": "Britannia Good Day Cashew Cookies",
+   "brand": "Britannia",
+   "size": "200 g",
+   "category": "bakery",
+   "keywords": [
+    "biscuit",
+    "cookie"
+   ],
+   "emoji": "🍪",
+   "mrp": 45,
+   "apps": {
+    "zepto": {
+     "price": 38,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 44,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 42,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "onion-1kg",
+   "name": "Onion",
+   "brand": null,
+   "size": "1 kg",
+   "category": "produce",
+   "keywords": [
+    "onion",
+    "pyaz"
+   ],
+   "emoji": "🧅",
+   "mrp": 45,
+   "apps": {
+    "zepto": {
+     "price": 42,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 38,
+     "in_stock": true,
+     "name": "Onion (Pyaz)"
+    },
+    "instamart": {
+     "price": 44,
+     "in_stock": true,
+     "name": "Fresh Onion"
+    }
+   }
+  },
+  {
+   "id": "potato-1kg",
+   "name": "Potato",
+   "brand": null,
+   "size": "1 kg",
+   "category": "produce",
+   "keywords": [
+    "potato",
+    "aloo"
+   ],
+   "emoji": "🥔",
+   "mrp": 40,
+   "apps": {
+    "zepto": {
+     "price": 38,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 34,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 39,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tomato-500g",
+   "name": "Tomato Hybrid",
+   "brand": null,
+   "size": "500 g",
+   "category": "produce",
+   "keywords": [
+    "tomato"
+   ],
+   "emoji": "🍅",
+   "mrp": 30,
+   "apps": {
+    "zepto": {
+     "price": 29,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 25,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 28,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tomato-1kg",
+   "name": "Tomato Hybrid",
+   "brand": null,
+   "size": "1 kg",
+   "category": "produce",
+   "keywords": [
+    "tomato"
+   ],
+   "emoji": "🍅",
+   "mrp": 55,
+   "apps": {
+    "zepto": {
+     "price": 52,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 46,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 54,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "banana-6",
+   "name": "Banana Robusta",
+   "brand": null,
+   "size": "6 pcs",
+   "category": "produce",
+   "keywords": [
+    "banana"
+   ],
+   "emoji": "🍌",
+   "mrp": 50,
+   "apps": {
+    "zepto": {
+     "price": 47,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 42,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 49,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "lemon-250g",
+   "name": "Lemon",
+   "brand": null,
+   "size": "250 g",
+   "category": "produce",
+   "keywords": [
+    "lemon",
+    "nimbu"
+   ],
+   "emoji": "🍋",
+   "mrp": 40,
+   "apps": {
+    "zepto": {
+     "price": 39,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 34,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 38,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "coriander-100g",
+   "name": "Coriander Leaves",
+   "brand": null,
+   "size": "100 g",
+   "category": "produce",
+   "keywords": [
+    "coriander",
+    "dhania"
+   ],
+   "emoji": "🌿",
+   "mrp": 20,
+   "apps": {
+    "zepto": {
+     "price": 19,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 17,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 20,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "ginger-200g",
+   "name": "Ginger",
+   "brand": null,
+   "size": "200 g",
+   "category": "produce",
+   "keywords": [
+    "ginger",
+    "adrak"
+   ],
+   "emoji": "🫚",
+   "mrp": 40,
+   "apps": {
+    "zepto": {
+     "price": 38,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 34,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 39,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "green-chilli-100g",
+   "name": "Green Chilli",
+   "brand": null,
+   "size": "100 g",
+   "category": "produce",
+   "keywords": [
+    "chilli",
+    "mirch"
+   ],
+   "emoji": "🌶️",
+   "mrp": 15,
+   "apps": {
+    "zepto": {
+     "price": 14,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 13,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 15,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "tata-tea-gold-500g",
+   "name": "Tata Tea Gold",
+   "brand": "Tata Tea",
+   "size": "500 g",
+   "category": "beverages",
+   "keywords": [
+    "tea",
+    "chai"
+   ],
+   "emoji": "🍵",
+   "mrp": 330,
+   "apps": {
+    "zepto": {
+     "price": 323,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 310,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 277,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "red-label-500g",
+   "name": "Brooke Bond Red Label Tea",
+   "brand": "Brooke Bond",
+   "size": "500 g",
+   "category": "beverages",
+   "keywords": [
+    "tea",
+    "chai"
+   ],
+   "emoji": "🍵",
+   "mrp": 300,
+   "apps": {
+    "zepto": {
+     "price": 294,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 282,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 252,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "nescafe-classic-50g",
+   "name": "Nescafe Classic Instant Coffee",
+   "brand": "Nescafe",
+   "size": "50 g",
+   "category": "beverages",
+   "keywords": [
+    "coffee"
+   ],
+   "emoji": "☕",
+   "mrp": 175,
+   "apps": {
+    "zepto": {
+     "price": 172,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 164,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 147,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "bru-instant-50g",
+   "name": "Bru Instant Coffee",
+   "brand": "Bru",
+   "size": "50 g",
+   "category": "beverages",
+   "keywords": [
+    "coffee"
+   ],
+   "emoji": "☕",
+   "mrp": 150,
+   "apps": {
+    "zepto": {
+     "price": 141,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 147,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 126,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "coca-cola-750ml",
+   "name": "Coca-Cola Soft Drink",
+   "brand": "Coca-Cola",
+   "size": "750 ml",
+   "category": "beverages",
+   "keywords": [
+    "coke",
+    "cola",
+    "drink"
+   ],
+   "emoji": "🥤",
+   "mrp": 45,
+   "apps": {
+    "zepto": {
+     "price": 42,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 44,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 38,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "bisleri-1l",
+   "name": "Bisleri Packaged Drinking Water",
+   "brand": "Bisleri",
+   "size": "1 L",
+   "category": "beverages",
+   "keywords": [
+    "water"
+   ],
+   "emoji": "💧",
+   "mrp": 20,
+   "apps": {
+    "zepto": {
+     "price": 20,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 19,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 17,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "lays-classic-50g",
+   "name": "Lay's Classic Salted Potato Chips",
+   "brand": "Lay's",
+   "size": "50 g",
+   "category": "snacks",
+   "keywords": [
+    "chips",
+    "lays"
+   ],
+   "emoji": "🥔",
+   "mrp": 20,
+   "apps": {
+    "zepto": {
+     "price": 17,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 19,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 20,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "kurkure-75g",
+   "name": "Kurkure Masala Munch",
+   "brand": "Kurkure",
+   "size": "75 g",
+   "category": "snacks",
+   "keywords": [
+    "kurkure",
+    "namkeen"
+   ],
+   "emoji": "🌽",
+   "mrp": 20,
+   "apps": {
+    "zepto": {
+     "price": 17,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 19,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 20,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "dairy-milk-50g",
+   "name": "Cadbury Dairy Milk Chocolate",
+   "brand": "Cadbury",
+   "size": "50 g",
+   "category": "snacks",
+   "keywords": [
+    "chocolate"
+   ],
+   "emoji": "🍫",
+   "mrp": 50,
+   "apps": {
+    "zepto": {
+     "price": 42,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 47,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 49,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "haldiram-bhujia-400g",
+   "name": "Haldiram's Aloo Bhujia",
+   "brand": "Haldiram's",
+   "size": "400 g",
+   "category": "snacks",
+   "keywords": [
+    "bhujia",
+    "namkeen"
+   ],
+   "emoji": "🥨",
+   "mrp": 110,
+   "apps": {
+    "zepto": {
+     "price": 92,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 103,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 108,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "kissan-jam-500g",
+   "name": "Kissan Mixed Fruit Jam",
+   "brand": "Kissan",
+   "size": "500 g",
+   "category": "sauces",
+   "keywords": [
+    "jam"
+   ],
+   "emoji": "🍓",
+   "mrp": 175,
+   "apps": {
+    "zepto": {
+     "price": 164,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 147,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 172,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "surf-excel-1kg",
+   "name": "Surf Excel Easy Wash Detergent Powder",
+   "brand": "Surf Excel",
+   "size": "1 kg",
+   "category": "household",
+   "keywords": [
+    "detergent"
+   ],
+   "emoji": "🧺",
+   "mrp": 150,
+   "apps": {
+    "zepto": {
+     "price": 141,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 147,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 126,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "vim-bar-300g",
+   "name": "Vim Dishwash Bar",
+   "brand": "Vim",
+   "size": "300 g",
+   "category": "household",
+   "keywords": [
+    "dishwash"
+   ],
+   "emoji": "🧽",
+   "mrp": 30,
+   "apps": {
+    "zepto": {
+     "price": 29,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 28,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 25,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "vim-liquid-500ml",
+   "name": "Vim Dishwash Liquid Gel Lemon",
+   "brand": "Vim",
+   "size": "500 ml",
+   "category": "household",
+   "keywords": [
+    "dishwash"
+   ],
+   "emoji": "🧴",
+   "mrp": 115,
+   "apps": {
+    "zepto": {
+     "price": 113,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 108,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 97,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "dettol-soap-500g",
+   "name": "Dettol Original Soap",
+   "brand": "Dettol",
+   "size": "4 x 125 g",
+   "category": "household",
+   "keywords": [
+    "soap"
+   ],
+   "emoji": "🧼",
+   "mrp": 190,
+   "apps": {
+    "zepto": {
+     "price": 179,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 186,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 160,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "colgate-200g",
+   "name": "Colgate Strong Teeth Toothpaste",
+   "brand": "Colgate",
+   "size": "200 g",
+   "category": "household",
+   "keywords": [
+    "toothpaste"
+   ],
+   "emoji": "🪥",
+   "mrp": 125,
+   "apps": {
+    "zepto": {
+     "price": 122,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 118,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 105,
+     "in_stock": true
+    }
+   }
+  },
+  {
+   "id": "harpic-500ml",
+   "name": "Harpic Power Plus Toilet Cleaner",
+   "brand": "Harpic",
+   "size": "500 ml",
+   "category": "household",
+   "keywords": [
+    "cleaner"
+   ],
+   "emoji": "🧴",
+   "mrp": 105,
+   "apps": {
+    "zepto": {
+     "price": 103,
+     "in_stock": true
+    },
+    "blinkit": {
+     "price": 99,
+     "in_stock": true
+    },
+    "instamart": {
+     "price": 88,
+     "in_stock": true
+    }
+   }
+  }
+ ]
+}

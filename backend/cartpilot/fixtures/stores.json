@@ -1,0 +1,21 @@
+{
+  "_comment": "Mock store settings. Fees are invented for the offline demo; they are not the real apps' fees.",
+  "zepto": {
+    "label": "Zepto",
+    "prefix": "z",
+    "eta_minutes": 9,
+    "fees": {"delivery_fee": 30, "free_delivery_threshold": 249, "handling_fee": 5, "small_cart_fee": 20, "small_cart_threshold": 99}
+  },
+  "blinkit": {
+    "label": "Blinkit",
+    "prefix": "b",
+    "eta_minutes": 11,
+    "fees": {"delivery_fee": 25, "free_delivery_threshold": 199, "handling_fee": 4, "small_cart_fee": 15, "small_cart_threshold": 99}
+  },
+  "instamart": {
+    "label": "Instamart",
+    "prefix": "i",
+    "eta_minutes": 14,
+    "fees": {"delivery_fee": 35, "free_delivery_threshold": 299, "handling_fee": 6, "small_cart_fee": 0, "small_cart_threshold": 0}
+  }
+}

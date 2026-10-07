@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>CartPilot</title>
+  <link rel="icon" href="../icons/icon48.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#list-input">Skip to grocery list</a>
+  <header class="appbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M9 17l5 5 10-11" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <h1>CartPilot</h1>
+        <p>One list. Cheapest split. You pay.</p>
+      </div>
+    </div>
+    <div class="appbar-right">
+      <span class="pill" id="mode-pill"></span>
+      <span class="status" id="backend-status" role="status"><i></i><span>Checking…</span></span>
+      <details class="menu" id="settings">
+        <summary aria-label="Settings" title="Settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" /><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+        </summary>
+        <div class="menu-body" id="settings-body"></div>
+      </details>
+    </div>
+  </header>
+
+  <nav class="steps" id="steps" aria-label="Progress"></nav>
+
+  <div class="shell">
+    <main class="flow" id="flow">
+      <section class="card" id="sec-list" aria-labelledby="h-list">
+        <div class="card-head">
+          <h2 id="h-list">Your grocery list</h2>
+          <span class="hint">Type it the way you would text it</span>
+        </div>
+        <textarea id="list-input" rows="4" spellcheck="false" maxlength="4000"
+          placeholder="1L amul milk, eggs, 2 maggi, aashirvaad atta 5kg…" aria-label="Grocery list"></textarea>
+        <div class="samples" id="samples"></div>
+        <div class="actions">
+          <button class="btn primary" id="go" data-action="start">Find the best split</button>
+          <button class="btn ghost" id="stop" data-action="stop" hidden>Stop</button>
+          <span class="count" id="list-count"></span>
+          <kbd class="kbd" title="Run with the keyboard">⌘ ↵</kbd>
+        </div>
+        <p class="working" id="working" role="status" hidden></p>
+        <div id="items"></div>
+        <ol class="intro" id="intro">
+          <li><b>1</b><div><strong>Write your list</strong><span>Plain words: "2 maggi, 1L amul milk".</span></div></li>
+          <li><b>2</b><div><strong>CartPilot compares</strong><span>Every item on every app, with delivery and handling fees.</span></div></li>
+          <li><b>3</b><div><strong>Carts get filled</strong><span>You watch the items go in, then review and pay yourself.</span></div></li>
+        </ol>
+      </section>
+
+      <section class="card" id="sec-stores" aria-labelledby="h-stores"></section>
+      <section class="card" id="sec-review" hidden></section>
+      <div id="sec-plan" hidden></div>
+      <section class="card" id="sec-fill" hidden></section>
+
+      <footer class="foot">
+        CartPilot only reads what the store pages already load in your own browser, works at human pace, and never touches payment.
+      </footer>
+    </main>
+
+    <aside class="live" id="live" aria-label="Live store view" hidden>
+      <div class="live-head">
+        <div class="tabs" id="live-tabs" role="tablist"></div>
+        <a class="open-tab" id="live-open" target="_blank" rel="noopener">Open in new tab ↗</a>
+      </div>
+      <div class="frames" id="live-frames"></div>
+      <p class="live-note">These are the offline mock stores. Watch CartPilot type, search and click Add in them.</p>
+    </aside>
+  </div>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
