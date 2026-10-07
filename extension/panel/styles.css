@@ -102,7 +102,9 @@ code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; background: va
 
 /* ---------- app bar */
 .appbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 20px; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1 1 0; }
+.brand > div { min-width: 0; }
+.appbar-right { flex: none; }
 .mark { width: 34px; height: 34px; flex: none; }
 .brand h1 { font-size: 17px; letter-spacing: -0.01em; line-height: 1.15; }
 .brand p { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -123,6 +125,11 @@ code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; background: va
 .field { display: grid; gap: 5px; font-size: 12px; color: var(--muted); font-weight: 600; }
 .field input { padding: 7px 9px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font-size: 13px; font-weight: 400; }
 .fine { color: var(--muted); font-size: 12px; }
+
+.icon-btn { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.icon-btn svg { width: 18px; height: 18px; fill: none; stroke: var(--ink-2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon-btn[data-dark="true"] .moon, .icon-btn[data-dark="false"] .sun { display: none; }
+.icon-btn:hover { border-color: var(--muted); }
 
 /* ---------- steps */
 .steps { padding: 12px 20px 0; max-width: 1500px; margin: 0 auto; }
@@ -190,6 +197,23 @@ textarea:disabled { opacity: 0.7; }
 .intro span { color: var(--muted); font-size: 12px; line-height: 1.35; display: block; }
 .thumb { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--line); font-size: 16px; line-height: 1; object-fit: contain; }
 .thumb.empty { visibility: hidden; width: 0; border: 0; }
+
+.samples .sep { margin-left: 6px; }
+.chip.saved { display: inline-flex; align-items: center; padding: 0; overflow: hidden; }
+.chip.saved button { border: 0; background: none; padding: 4px 4px 4px 11px; font: inherit; max-width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chip.saved .x { padding: 4px 9px 4px 5px; color: var(--muted); font-size: 11px; }
+.chip.saved .x:hover { color: var(--bad); }
+.tag.edit { gap: 3px; padding: 2px 3px; }
+.tag.edit b { min-width: 16px; text-align: center; font-variant-numeric: tabular-nums; }
+.tag.edit .t-name { display: inline-flex; gap: 5px; align-items: center; padding: 0 5px; }
+.mini { display: grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface); color: var(--ink-2); font-size: 13px; line-height: 1; }
+.mini:hover:not(:disabled) { border-color: var(--accent); color: var(--accent-strong); }
+.mini:disabled { opacity: 0.35; }
+.mini.x { border-color: transparent; background: transparent; font-size: 10px; color: var(--muted); }
+.mini.x:hover:not(:disabled) { border-color: transparent; color: var(--bad); }
+.r-item.skeleton .sk-line { height: 12px; width: 62%; margin-top: 7px; border-radius: 6px; background: linear-gradient(90deg, var(--line) 25%, var(--surface-2) 50%, var(--line) 75%); background-size: 200% 100%; animation: shimmer 1.3s linear infinite; }
+.r-item.skeleton:nth-child(even) .sk-line { width: 44%; }
+@keyframes shimmer { to { background-position: -200% 0; } }
 
 /* ---------- stores */
 .stores { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
@@ -361,6 +385,10 @@ textarea:disabled { opacity: 0.7; }
 .toast { padding: 10px 14px; border-radius: 12px; background: #0f172a; color: #fff; font-size: 13.5px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); animation: rise 0.2s ease-out; }
 .toast.error { background: #991b1b; }
 @keyframes rise { from { transform: translateY(8px); opacity: 0; } }
+
+@media (max-width: 860px) {
+  .brand p { display: none; }
+}
 
 /* ---------- narrow (side panel, phones) */
 @media (max-width: 560px) {

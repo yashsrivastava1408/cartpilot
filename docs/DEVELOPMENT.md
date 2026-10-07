@@ -93,7 +93,7 @@ docs/
 | `backend/tests/test_matching.py` | 26 | Scoring, shortlist, choosers, variants, substitutes, batching, retry, cache |
 | `backend/tests/test_optimizer.py` | 115 | Cost model, edge cases, both solvers against an independent brute force |
 | `backend/tests/test_api.py` | 16 | Endpoints, validation, errors, CORS, the mock stores, the full pipeline |
-| `e2e/tests/web-demo.spec.js` | 12 | The whole flow in a browser, controls, stop, pacing, failures, layout |
+| `e2e/tests/web-demo.spec.js` | 17 | The whole flow in a browser, item editing, saved lists, theme, controls, stop, pacing, failures, layout |
 | `e2e/tests/extension.spec.js` | 4 | The real extension in Chromium: collect, fill, recorder, no-tabs state |
 | `e2e/tests/adapters.spec.js` | 5 | `normalize()` per store, the heuristic reader, page matching |
 

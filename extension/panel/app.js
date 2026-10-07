@@ -249,7 +249,14 @@ function renderSteps() {
   );
 }
 
+const darkNow = () =>
+  settings.theme === "dark" || (settings.theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
 function renderHeader() {
+  const dark = darkNow();
+  $("theme-toggle").setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+  $("theme-toggle").title = dark ? "Light theme" : "Dark theme";
+  $("theme-toggle").dataset.dark = String(dark);
   $("mode-pill").textContent = usingMock() ? "Demo · mock stores" : "Live stores";
   $("mode-pill").className = `pill ${usingMock() ? "demo" : "live-mode"}`;
   const h = S.health;
@@ -281,13 +288,23 @@ function renderList() {
   $("go").textContent = S.items.length ? "Run again" : "Find the best split";
   $("list-input").disabled = busy();
   $("list-count").hidden = S.items.length > 0; // the parsed count below is the accurate one
+  const lists = saved.get("lists", []);
+  const text = $("list-input").value.trim();
+  const canSave = text && !busy() && !lists.some((l) => l.text === text) && !SAMPLES.some((x) => x.text === text);
   setHtml(
     "samples",
-    `<span>Try:</span>${SAMPLES.map((s, i) => `<button class="chip" data-action="sample" data-index="${i}" ${busy() ? "disabled" : ""}>${esc(s.label)}</button>`).join("")}`,
+    `<span>Try:</span>${SAMPLES.map((x, i) => `<button class="chip" data-action="sample" data-index="${i}" ${busy() ? "disabled" : ""}>${esc(x.label)}</button>`).join("")}
+    ${lists.length ? `<span class="sep">Saved:</span>` : ""}${lists
+      .map(
+        (l, i) =>
+          `<span class="chip saved"><button data-action="load-list" data-index="${i}" ${busy() ? "disabled" : ""} title="${esc(l.text)}">${esc(l.name)}</button><button class="x" data-action="delete-list" data-index="${i}" aria-label="Delete saved list ${esc(l.name)}">✕</button></span>`,
+      )
+      .join("")}
+    ${canSave ? `<button class="link" data-action="save-list">Save this list</button>` : ""}`,
   );
   const working = {
     parsing: "Reading your list…",
-    collecting: `Checking prices on ${plural(Object.values(S.stores).filter((x) => x.connected).length, "store")}, one item at a time…`,
+    collecting: `Checking prices on ${plural(Object.values(S.stores).filter((x) => x.connected).length, "store")}, one item at a time…${timeLeft()}`,
     matching: `Matching products${S.health && S.health.matcher !== "fuzzy" ? ` with ${{ jev: "Jev", groq: "Groq" }[S.health.matcher]}` : ""}…`,
     filling: "Adding items to your carts…",
   }[S.phase];
@@ -296,17 +313,37 @@ function renderList() {
   $("intro").hidden = S.phase !== "idle" || S.items.length > 0;
   if (!S.items.length) return setHtml("items", "");
   const note = S.parseInfo && S.parseInfo.warnings.length ? `<p class="warn-line">${esc(S.parseInfo.warnings.join(" "))}</p>` : "";
+  const editable = canEdit();
   setHtml(
     "items",
-    `<div class="parsed"><span class="parsed-label">Understood as ${plural(S.items.length, "item")}</span>
+    `<div class="parsed"><span class="parsed-label">Understood as ${plural(S.items.length, "item")}${editable ? " · change amounts or remove here" : ""}</span>
       ${S.items
-        .map(
-          (i) =>
-            `<span class="tag">${i.quantity > 1 ? `<b>${i.quantity}×</b>` : ""}${esc(i.brand && !i.name.toLowerCase().includes(i.brand.toLowerCase()) ? `${i.brand} ` : "")}${esc(i.name)}${i.size ? `<em>${esc(sizeLabel(i.size))}</em>` : ""}</span>`,
-        )
+        .map((i) => {
+          const name = `${esc(i.brand && !i.name.toLowerCase().includes(i.brand.toLowerCase()) ? `${i.brand} ` : "")}${esc(i.name)}`;
+          const size = i.size ? `<em>${esc(sizeLabel(i.size))}</em>` : "";
+          if (!editable) return `<span class="tag">${i.quantity > 1 ? `<b>${i.quantity}×</b>` : ""}${name}${size}</span>`;
+          return `<span class="tag edit" data-item="${i.id}">
+            <button class="mini" data-action="qty" data-item="${i.id}" data-delta="-1" ${i.quantity <= 1 ? "disabled" : ""} aria-label="One less ${esc(i.name)}">−</button>
+            <b aria-label="Quantity">${i.quantity}</b>
+            <button class="mini" data-action="qty" data-item="${i.id}" data-delta="1" ${i.quantity >= 50 ? "disabled" : ""} aria-label="One more ${esc(i.name)}">+</button>
+            <span class="t-name">${name}${size}</span>
+            <button class="mini x" data-action="remove-item" data-item="${i.id}" aria-label="Remove ${esc(i.name)}">✕</button></span>`;
+        })
         .join("")}
     </div>${note}`,
   );
+}
+
+/** Items can be edited once prices are in, until cart filling starts. */
+function canEdit() {
+  return ["review", "plan"].includes(S.phase) || (S.phase === "idle" && S.items.length > 0 && Object.keys(S.matches).length > 0);
+}
+
+function timeLeft() {
+  const remaining = Math.max(0, ...Object.values(S.activity).filter((a) => a.state === "collecting").map((a) => a.total - a.index - 1));
+  const perItem = usingMock() && settings.pace === "fast" ? 0.7 : 3.2;
+  const seconds = Math.round((remaining * perItem) / 5) * 5;
+  return seconds >= 5 ? ` About ${seconds} s left.` : "";
 }
 
 function storeStatus(id) {
@@ -433,9 +470,19 @@ function renderReviewItem(item) {
 }
 
 function renderReview() {
-  const show = Object.keys(S.matches).length > 0;
+  const loading = ["collecting", "matching"].includes(S.phase) && S.items.length > 0;
+  const show = Object.keys(S.matches).length > 0 || loading;
   $("sec-review").hidden = !show;
   if (!show) return setHtml("sec-review", "");
+  if (loading) {
+    return setHtml(
+      "sec-review",
+      `<div class="card-head"><h2>Confirm the products</h2><span class="hint">${S.phase === "matching" ? "Matching…" : "Waiting for prices…"}</span></div>
+      <ul class="review" aria-busy="true">${S.items
+        .map((i) => `<li class="r-item skeleton"><div class="r-title"><strong>${esc(itemTitle(i))}</strong></div><div class="sk-line"></div></li>`)
+        .join("")}</ul>`,
+    );
+  }
   const open = unresolvedCount();
   setHtml(
     "sec-review",
@@ -960,6 +1007,52 @@ const actions = {
     if (el.dataset.name === "source") refreshStores();
     render();
   },
+  qty(el) {
+    const item = itemById(el.dataset.item);
+    if (!item || !canEdit()) return;
+    item.quantity = Math.max(1, Math.min(50, item.quantity + Number(el.dataset.delta)));
+    afterEdit();
+  },
+  "remove-item"(el) {
+    if (!canEdit()) return;
+    const id = el.dataset.item;
+    S.items = S.items.filter((i) => i.id !== id);
+    for (const bag of [S.matches, S.choices, S.expanded, ...Object.values(S.candidates)]) delete bag[id];
+    if (!S.items.length) {
+      resetRun();
+      S.phase = "idle";
+      return render();
+    }
+    afterEdit();
+  },
+  "save-list"() {
+    const text = $("list-input").value.trim();
+    if (!text) return;
+    const parts = text.split(/[,\n;]+/).map((x) => x.trim()).filter(Boolean);
+    const name = `${parts.slice(0, 2).join(", ")}${parts.length > 2 ? ` +${parts.length - 2}` : ""}`.slice(0, 32);
+    saved.set("lists", [{ name, text }, ...saved.get("lists", []).filter((l) => l.text !== text)].slice(0, 6));
+    toast("List saved. It will be here next time.");
+    render();
+  },
+  "load-list"(el) {
+    const list = saved.get("lists", [])[Number(el.dataset.index)];
+    if (!list) return;
+    $("list-input").value = list.text;
+    updateCount();
+    render();
+    $("list-input").focus();
+  },
+  "delete-list"(el) {
+    const lists = saved.get("lists", []);
+    lists.splice(Number(el.dataset.index), 1);
+    saved.set("lists", lists);
+    render();
+  },
+  "toggle-theme"() {
+    settings.theme = darkNow() ? "light" : "dark";
+    saved.set("theme", settings.theme);
+    render();
+  },
   async "record-start"(el) {
     const store = el.dataset.store;
     const reply = await transport.record(store, "start");
@@ -1013,6 +1106,12 @@ const actions = {
   },
 };
 
+/** Amounts or items changed: prices are already known, so only the plan needs solving again. */
+function afterEdit() {
+  if (unresolvedCount() === 0 && Object.keys(S.matches).length) return buildPlan();
+  render();
+}
+
 function afterChoice() {
   if (unresolvedCount() === 0 && ["review", "plan"].includes(S.phase)) buildPlan();
   else {
@@ -1025,7 +1124,9 @@ document.addEventListener("click", (event) => {
   const el = event.target.closest("[data-action]");
   if (!el || el.disabled) return;
   const handler = actions[el.dataset.action];
-  if (handler) Promise.resolve(handler(el)).catch((error) => toast(error.message || "Something went wrong.", "error"));
+  if (!handler) return;
+  // Handlers may be sync or async; either way a failure becomes a message, never a dead button.
+  new Promise((resolve) => resolve(handler(el))).catch((error) => toast(error.message || "Something went wrong.", "error"));
 });
 
 document.addEventListener("change", (event) => {
@@ -1057,7 +1158,10 @@ function updateCount() {
   const n = $("list-input").value.split(/[,\n;]+/).filter((s) => /[a-z]/i.test(s)).length;
   $("list-count").textContent = n ? plural(n, "item") : "";
 }
-$("list-input").addEventListener("input", updateCount);
+$("list-input").addEventListener("input", () => {
+  updateCount();
+  renderList(); // shows or hides "Save this list"
+});
 $("list-input").addEventListener("keydown", (event) => {
   if (event.key === "Enter" && (event.metaKey || event.ctrlKey) && !busy()) start();
 });

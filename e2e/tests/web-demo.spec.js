@@ -5,12 +5,16 @@ const { STORES, waitForPhase, openApp, runList, pick, storeCart, emptyCarts } = 
 const WEEKEND = "12 eggs, amul butter 500g, britannia bread, aashirvaad atta 5kg, toor dal 1kg, onion 1kg, tomato 1kg, fortune sunflower oil 1L, tata tea gold 500g, surf excel 1kg";
 const WEEKLY = "1L amul milk, eggs, 2 maggi, aashirvaad atta 5kg, onion 1kg, britannia bread, catch hing";
 
+let pageErrors;
 test.beforeEach(async ({ page }) => {
-  page.on("pageerror", (error) => {
-    throw error;
-  });
+  pageErrors = [];
+  page.on("pageerror", (error) => pageErrors.push(error.stack || error.message));
   await openApp(page);
   await emptyCarts(page);
+});
+
+test.afterEach(() => {
+  expect(pageErrors, "uncaught errors in the page or a store frame").toEqual([]);
 });
 
 test("clear list: prices, plan with savings, carts really filled", async ({ page }) => {
@@ -127,6 +131,99 @@ test("plan controls: app limit, minimum saving and fee edits re-optimise", async
   await page.waitForFunction(() => !window.__cartpilot.state.plan.carts.some((c) => c.app === "zepto"));
   await expect(page.locator('details[data-keep="fees"]')).toHaveAttribute("open", ""); // stays open while you edit
   await expect(page.locator('fieldset[data-store="zepto"] legend')).toContainText("edited by you");
+});
+
+test("edit amounts and remove items after pricing, without searching again", async ({ page }) => {
+  let searches = 0;
+  page.on("request", (r) => {
+    if (/\/mock\/(zepto\/api\/v3\/search|blinkit\/api\/v1\/layout\/search|instamart\/api\/instamart\/search)/.test(r.url())) searches++;
+  });
+  await runList(page, "onion 1kg, potato 1kg, aashirvaad atta 5kg");
+  await waitForPhase(page, "plan");
+  const before = await page.evaluate(() => window.__cartpilot.state.plan);
+  const searchesAfterRun = searches;
+  expect(searchesAfterRun).toBe(9); // 3 items on 3 stores
+
+  await page.locator('.tag.edit[data-item="item-1"] [data-action="qty"][data-delta="1"]').click();
+  await page.locator('.tag.edit[data-item="item-1"] [data-action="qty"][data-delta="1"]').click();
+  await page.waitForFunction(() => window.__cartpilot.state.plan.carts.flatMap((c) => c.lines).find((l) => l.item_id === "item-1").quantity === 3);
+  const after = await page.evaluate(() => window.__cartpilot.state.plan);
+  const onion = after.carts.flatMap((c) => c.lines).find((l) => l.item_id === "item-1");
+  expect(onion.line_total).toBe(3 * onion.unit_price);
+  expect(after.total).toBeGreaterThan(before.total);
+  await expect(page.locator('.tag.edit[data-item="item-1"] b')).toHaveText("3");
+  await expect(page.locator('.tag.edit[data-item="item-2"] [data-delta="-1"]')).toBeDisabled(); // cannot go below 1
+
+  await page.locator('.tag.edit[data-item="item-2"] [data-action="remove-item"]').click();
+  await page.waitForFunction(() => !("item-2" in window.__cartpilot.state.plan.assignment));
+  await expect(page.locator(".tag.edit")).toHaveCount(2);
+  expect(searches).toBe(searchesAfterRun); // no store was searched again
+
+  await page.click('[data-action="fill"]');
+  await waitForPhase(page, "done");
+  const plan = await page.evaluate(() => window.__cartpilot.state.plan);
+  let units = 0;
+  for (const cart of plan.carts) units += (await storeCart(page, cart.app)).count;
+  expect(units).toBe(4); // 3 onions + 1 atta, no potato
+  await expect(page.locator(".tag.edit")).toHaveCount(0); // locked once filling starts
+});
+
+test("removing the last item goes back to the start", async ({ page }) => {
+  await runList(page, "onion 1kg");
+  await waitForPhase(page, "plan");
+  await page.locator('[data-action="remove-item"]').click();
+  await waitForPhase(page, "idle");
+  await expect(page.locator("#sec-plan")).toBeHidden();
+  await expect(page.locator("#intro")).toBeVisible();
+});
+
+test("saved lists persist, load and delete", async ({ page }) => {
+  await page.evaluate(() => localStorage.clear());
+  await page.reload();
+  await expect(page.locator('[data-action="save-list"]')).toHaveCount(0);
+  await page.fill("#list-input", "ghee, paneer 200g, curd");
+  await page.click('[data-action="save-list"]');
+  await expect(page.locator(".chip.saved")).toHaveCount(1);
+  await expect(page.locator(".chip.saved")).toContainText("ghee, paneer 200g +1");
+  await expect(page.locator('[data-action="save-list"]')).toHaveCount(0); // already saved
+
+  await page.reload();
+  await page.fill("#list-input", "");
+  await page.locator('.chip.saved [data-action="load-list"]').click();
+  await expect(page.locator("#list-input")).toHaveValue("ghee, paneer 200g, curd");
+  await page.locator('.chip.saved [data-action="delete-list"]').click();
+  await expect(page.locator(".chip.saved")).toHaveCount(0);
+  await page.evaluate(() => localStorage.clear());
+});
+
+test("theme button flips light and dark and is remembered", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.evaluate(() => localStorage.removeItem("cartpilot.theme"));
+  await page.reload();
+  const bg = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  const light = await bg();
+  await page.click("#theme-toggle");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  expect(await bg()).not.toBe(light);
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.click("#theme-toggle");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  expect(await bg()).toBe(light);
+  await page.evaluate(() => localStorage.removeItem("cartpilot.theme"));
+});
+
+test("placeholders and a time estimate show while prices load", async ({ page }) => {
+  await page.click('[data-action="set"][data-name="pace"][data-value="human"]');
+  await runList(page, "onion 1kg, potato 1kg, tomato 1kg, ginger");
+  await waitForPhase(page, "collecting");
+  await expect(page.locator(".r-item.skeleton")).toHaveCount(4);
+  await expect(page.locator("#working")).toContainText("Checking prices on 3 stores");
+  await expect(page.locator("#working")).toContainText(/About \d+ s left/);
+  await page.click("#stop");
+  await waitForPhase(page, "idle", 20_000);
+  await expect(page.locator(".r-item.skeleton")).toHaveCount(0);
+  await page.click('[data-action="set"][data-name="pace"][data-value="fast"]');
 });
 
 test("stop during price collection adds nothing", async ({ page }) => {
